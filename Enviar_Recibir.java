@@ -18,11 +18,11 @@ public class Enviar_Recibir {
             ex.printStackTrace();
         }
     }
-    public Enviar_Cliente Recibe_Autentificador (String IP){
+    public Enviar_Cliente Recibe_Autentificador (String IP, int puerto){
         Enviar_Cliente enviaC = null;
         try{
             InetAddress maquinaAceptadora = InetAddress.getByName(IP);
-            Socket miSocket = new Socket(maquinaAceptadora, 5000);
+            Socket miSocket = new Socket(maquinaAceptadora, puerto);
             InputStream flujoEntrada = miSocket.getInputStream();
             ObjectInputStream objectInputStream = new ObjectInputStream(flujoEntrada);
             enviaC = (Enviar_Cliente) objectInputStream.readObject();
