@@ -36,5 +36,21 @@ public class Cifrador_Clases {
 
         return ticket_as;
     }
+    public String Cifrado_Enviar_AS(Enviar_AS enviar_as, SecretKey secretKey) throws NoSuchPaddingException, NoSuchAlgorithmException, IOException, InvalidKeyException, IllegalBlockSizeException, BadPaddingException {
+        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+        ObjectOutputStream objectOutputStream = new ObjectOutputStream(outputStream);
+
+        String cifrado;
+        byte[] separado;
+
+        objectOutputStream.writeObject(enviar_as);
+        separado = outputStream.toByteArray();
+        Cipher cipher = Cipher.getInstance("DES");
+        cipher.init(Cipher.ENCRYPT_MODE,secretKey);
+        byte[] Cifrado = cipher.doFinal(separado);
+        cifrado = Base64.getEncoder().encodeToString(Cifrado);
+
+        return cifrado;
+    }
 
 }

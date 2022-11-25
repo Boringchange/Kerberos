@@ -19,9 +19,9 @@ public class Servidor_Autentificador {
         Cifrador_Clases cifrador_clases = new Cifrador_Clases();
         Enviar_AS enviar_as = new Enviar_AS();
 
-        String Kc, Ktgs, adC, IP, TicketCifrado;
+        String adC, IP, TicketCifrado, Enviar_ASCifrada;
         int lifetime, puerto, idC, idTgs, ts2, ts1;
-        SecretKey ks_c_tgs, ks_tgs;
+        SecretKey ks_c_tgs, ks_tgs, ks_c;
 
         System.out.println("Ingrese el IP del cliente");
         IP = sc.nextLine();
@@ -50,6 +50,7 @@ public class Servidor_Autentificador {
             ticket_as.setLifetime(lifetime);
 
             ks_tgs =generador.secretKey("12");
+
             //Ticket Cifrado
             TicketCifrado = cifrador_clases.Cifrado_Ticket_As(ticket_as, ks_tgs);
 
@@ -60,8 +61,9 @@ public class Servidor_Autentificador {
             enviar_as.setLifetime_2(lifetime);
             enviar_as.setTicket_tgs_Cifrado(TicketCifrado);
 
-            //
+            ks_c = generador.secretKey("10");
 
+            Enviar_ASCifrada = cifrador_clases.Cifrado_Enviar_AS(enviar_as, ks_c);
         }
         else{
             System.out.println("Hay un desfase de horas");

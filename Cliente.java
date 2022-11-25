@@ -1,3 +1,5 @@
+
+
 import java.util.Scanner;
 
 public class Cliente {
@@ -14,6 +16,7 @@ public class Cliente {
         System.out.println("Introduzca el puerto de Servidor de Autentificacion: ");
         int puerto = sc.nextInt();
 
-        enviar_recibir.Enviar_AS_C(enviar_cliente, puerto);
+        enviar_recibir.Enviar_AS_C(enviar_cliente, 5000);
     }
 }
+
