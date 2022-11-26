@@ -19,27 +19,24 @@ public class Servidor_Autentificador {
         Cifrador_Clases cifrador_clases = new Cifrador_Clases();
         Enviar_AS enviar_as = new Enviar_AS();
 
-        String adC, IP, TicketCifrado, Enviar_ASCifrada;
-        int lifetime, puerto, idC, idTgs, ts2, ts1;
+        String adC, IPC, TicketCifrado, Enviar_ASCifrada;
+        int lifetime, puertoC, idC, idTgs, ts2, ts1;
         SecretKey ks_c_tgs, ks_tgs, ks_c;
 
         System.out.println("Ingrese el IP del cliente");
-        IP = sc.nextLine();
+        IPC = sc.nextLine();
 
         System.out.println("Ingrese el puerto en el que se trabajara");
-        puerto = sc.nextInt();
+        puertoC = sc.nextInt();
 
-        infoClien = e_r.Recibe_Autentificador(IP, puerto);
-        
-    
-        System.out.println(ts1 = infoClien.getID_TGS());
-        System.out.println(idC = infoClien.getID_client());
-        System.out.println(idTgs = infoClien.getID_TGS());
+        infoClien = e_r.Recibe_Autentificador(IPC, puertoC);
 
+
+        idTgs = infoClien.getID_TGS();
+        idC = infoClien.getID_client();
+        ts1 = infoClien.getID_TGS();
         ks_c_tgs = generador.secretKey("14");
-        
-        adC = IP;
-        
+        adC = IPC;
         ts2 = generador.horalocal();
         lifetime = 2000;
          
@@ -67,6 +64,9 @@ public class Servidor_Autentificador {
             ks_c = generador.secretKey("10");
 
             Enviar_ASCifrada = cifrador_clases.Cifrado_Enviar_AS(enviar_as, ks_c);
+
+            //Enviar clase cifrada
+            e_r.Enviar_Cifrado(Enviar_ASCifrada, puertoC);
         }
         else{
             System.out.println("Hay un desfase de horas");

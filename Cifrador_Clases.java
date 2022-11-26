@@ -52,5 +52,35 @@ public class Cifrador_Clases {
 
         return cifrado;
     }
+    public Enviar_AS Decifrador_Enviar_AS(String cifrado, SecretKey secretKey) throws NoSuchPaddingException, NoSuchAlgorithmException, InvalidKeyException, IOException, ClassNotFoundException, IllegalBlockSizeException, BadPaddingException {
+        Enviar_AS enviarAs = new Enviar_AS();
+
+        byte[] enviar_AS;
+
+        Cipher cipher = Cipher.getInstance("DES");
+        cipher.init(Cipher.DECRYPT_MODE, secretKey);
+        enviar_AS = cipher.doFinal(Base64.getDecoder().decode(cifrado));
+        InputStream inputStream = new ByteArrayInputStream(enviar_AS);
+        ObjectInputStream objectInputStream = new ObjectInputStream(inputStream);
+        enviarAs = (Enviar_AS) (objectInputStream.readObject());
+
+        return enviarAs;
+    }
+    public String Cifrado_Autentificador(Autentificador autentificador, SecretKey secretKey) throws IOException, NoSuchPaddingException, NoSuchAlgorithmException, IllegalBlockSizeException, BadPaddingException, InvalidKeyException {
+        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+        ObjectOutputStream objectOutputStream = new ObjectOutputStream(outputStream);
+
+        String cifrado;
+        byte[] separado;
+
+        objectOutputStream.writeObject(autentificador);
+        separado = outputStream.toByteArray();
+        Cipher cipher = Cipher.getInstance("DES");
+        cipher.init(Cipher.ENCRYPT_MODE, secretKey);
+        byte[] Cifrado = cipher.doFinal(separado);
+        cifrado = Base64.getEncoder().encodeToString(Cifrado);
+
+        return cifrado;
+    }
 
 }
