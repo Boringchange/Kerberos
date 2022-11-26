@@ -1,4 +1,6 @@
-public class Enviar_Cliente {
+import java.io.Serializable;
+
+public class Enviar_Cliente implements Serializable {
     private int ID_client = 001;
     private int ID_TGS = 002;
     private int TS;
