@@ -29,7 +29,7 @@ public class Servidor_Autentificador {
         System.out.println("Ingrese el puerto en el que se trabajara");
         puertoC = sc.nextInt();
 
-        infoClien = e_r.Recibe_Autentificador(IPC, puertoC);
+        infoClien = e_r.Recibe_Enviar_C_AS(IPC, puertoC);
 
 
         idTgs = infoClien.getID_TGS();
