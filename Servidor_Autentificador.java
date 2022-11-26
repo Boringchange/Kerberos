@@ -30,16 +30,19 @@ public class Servidor_Autentificador {
         puerto = sc.nextInt();
 
         infoClien = e_r.Recibe_Autentificador(IP, puerto);
-
-        ts1 = infoClien.getID_TGS();
+        
+    
+        System.out.println(ts1 = infoClien.getID_TGS());
+        System.out.println(idC = infoClien.getID_client());
+        System.out.println(idTgs = infoClien.getID_TGS());
 
         ks_c_tgs = generador.secretKey("14");
-        idC = infoClien.getID_client();
+        
         adC = IP;
-        idTgs = infoClien.getID_TGS();
+        
         ts2 = generador.horalocal();
-        lifetime = 120000;
-
+        lifetime = 2000;
+         
         if (ts1 == ts2){
             //Guardar datos en ticket
             ticket_as.setClave_c_tgs(ks_c_tgs);
