@@ -1,6 +1,7 @@
 import javax.crypto.SecretKey;
+import java.io.Serializable;
 
-public class Ticket_V {
+public class Ticket_V implements Serializable {
     private SecretKey Ks_C_V;
     private int ID_C = 001;
     private String IP_C;

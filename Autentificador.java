@@ -1,4 +1,6 @@
-public class Autentificador {
+import java.io.Serializable;
+
+public class Autentificador implements Serializable {
     private int ID_C ;
     private String IP_C;
     private int Hora_3;

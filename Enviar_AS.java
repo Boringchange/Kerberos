@@ -1,6 +1,7 @@
 import javax.crypto.SecretKey;
+import java.io.Serializable;
 
-public class Enviar_AS {
+public class Enviar_AS implements Serializable {
     private SecretKey ks_c_tgs;
     private int ID_tgs;
     private int Hora_AS;

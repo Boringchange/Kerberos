@@ -1,3 +1,4 @@
+import javax.crypto.KeyGenerator;
 import javax.crypto.SecretKey;
 import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.DESKeySpec;
@@ -14,23 +15,23 @@ public class Generador {
 
         return hora;
     }
-    public SecretKey secretKey(String clave){
-        KeyPairGenerator generator;
+    public int minutolocal(){
+        Calendar calendar = Calendar.getInstance();
 
+        int minuto = calendar.get(calendar.MINUTE);
+
+        return minuto;
+    }
+    public SecretKey secretKey(String clave){
         SecretKey secretKey = null;
 
         try {
-            SecretKeyFactory secretKeyFactory = SecretKeyFactory.getInstance("DES");
-            DESKeySpec keySpec = new DESKeySpec(clave.getBytes());
-            secretKey = secretKeyFactory.generateSecret(keySpec);
+            KeyGenerator keyGenerator = KeyGenerator.getInstance("DES");
+            SecretKey deKey = keyGenerator.generateKey();
         } catch (NoSuchAlgorithmException e) {
             throw new RuntimeException(e);
-        } catch (InvalidKeyException e) {
-            throw new RuntimeException(e);
-        } catch (InvalidKeySpecException e) {
-            throw new RuntimeException(e);
         }
-
+        
         return secretKey;
     }
 }

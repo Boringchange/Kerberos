@@ -1,16 +1,17 @@
 import javax.crypto.SecretKey;
+import java.io.Serializable;
 
-public class Enviar_TGS {
+public class Enviar_TGS implements Serializable {
     SecretKey Ks_C_V;
     int ID_V = 004;
     int TS_4;
     String ticket_v_Cifrado;
 
-    public SecretKey getKs_c_tgs() {
+    public SecretKey getKs_C_V() {
         return Ks_C_V;
     }
 
-    public void setKs_c_tgs(SecretKey ks_c_tgs) {
+    public void setKs_C_V(SecretKey ks_c_tgs) {
         Ks_C_V = ks_c_tgs;
     }
 
