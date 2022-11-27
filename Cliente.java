@@ -36,7 +36,7 @@ public class Cliente {
 
         enviar_recibir.Enviar_C_AS(enviar_cliente, puerto);
 
-        System.out.println("Introduzca el ip del sercidor Autentificador");
+        System.out.println("Introduzca el ip del servidor Autentificador");
         IP_AS = sc.nextLine();
 
         //Recibe datos de AC
