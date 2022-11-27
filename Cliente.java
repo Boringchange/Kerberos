@@ -63,6 +63,8 @@ public class Cliente {
 
         //enviar
         enviar_recibir.Enviar_C_AS(enviar_cliente, puertoTGS);
+
+
     }
 }
 
