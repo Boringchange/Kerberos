@@ -56,4 +56,30 @@ public class Enviar_Cliente implements Serializable {
     public void setAutentificacion(String autentificacion) {
         Autentificacion_cifrado = autentificacion;
     }
+    private String Autentificador_V;
+    private String Ticket_V;
+
+    public String getAutentificacion_cifrado() {
+        return Autentificacion_cifrado;
+    }
+
+    public void setAutentificacion_cifrado(String autentificacion_cifrado) {
+        Autentificacion_cifrado = autentificacion_cifrado;
+    }
+
+    public String getAutentificador_V() {
+        return Autentificador_V;
+    }
+
+    public void setAutentificador_V(String autentificador_V) {
+        Autentificador_V = autentificador_V;
+    }
+
+    public String getTicket_V() {
+        return Ticket_V;
+    }
+
+    public void setTicket_V(String ticket_V) {
+        Ticket_V = ticket_V;
+    }
 }
