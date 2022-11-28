@@ -9,6 +9,7 @@ import java.awt.*;
 import java.io.IOException;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
+import java.sql.SQLOutput;
 import java.util.Base64;
 import java.util.Scanner;
 
@@ -46,6 +47,9 @@ public class Cliente {
                 case 1:
                     if (pasedirecto == false){
                         enviar_cliente.setTS(hora);
+                        System.out.println("Introduzca su id de cliente: ");
+                        int idcli = sc.nextInt();
+                        enviar_cliente.setID_client(idcli);
 
                         System.out.println("Introduzca el puerto de Servidor de Autentificacion: ");
                         int puerto = sc.nextInt();
