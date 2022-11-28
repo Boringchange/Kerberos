@@ -5,6 +5,7 @@ public class Enviar_Cliente implements Serializable {
     private int ID_TGS = 003;
     private int TS;
 
+
     public int getTS() {
         return TS;
     }

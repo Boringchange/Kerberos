@@ -46,11 +46,14 @@ public class Cliente {
                 case 1:
                     if (pasedirecto == false){
                         enviar_cliente.setTS(hora);
+                        System.out.println("Introduzca el ID del cliente");
+                        int id = sc.nextInt();
 
                         System.out.println("Introduzca el puerto de Servidor de Autentificacion: ");
                         int puerto = sc.nextInt();
 
                         //Enviar hora local
+                        enviar_cliente.setID_client(id);
 
                         enviar_recibir.Enviar_C_AS(enviar_cliente, puerto);
 
