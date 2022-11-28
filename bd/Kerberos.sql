@@ -7,4 +7,4 @@ idcli int primary key not null auto_increment,
 adc varchar(15)
 );
 
-insert into Registro_cli values(1,"192.168.0.8");
+insert into Registro_cli values(1,'192.168.0.8');
