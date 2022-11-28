@@ -43,6 +43,7 @@ public class Enviar_Recibir {
             Socket socketDatos = socketconnection.accept();
             OutputStream flujosalida = socketDatos.getOutputStream();
             PrintWriter salidaSocket = new PrintWriter(new OutputStreamWriter(flujosalida));
+            salidaSocket.println(ClaseCifrada);
             salidaSocket.flush();
             socketDatos.close();
             socketconnection.close();

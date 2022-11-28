@@ -52,8 +52,8 @@ public class Servidor {
 
                         enviar_cliente = enviar_recibir.Recibe_Enviar_C_AS(IP_C, Puerto);
 
-                        Ks_V = generador.secretKey("20");
-                        Ks_C_V = generador.secretKey("11");
+                        Ks_V = generador.secretKey("aeda17fa60187851b74f9928664dd08b320");
+                        Ks_C_V = generador.secretKey("aeda17fa60187851b74f9928664dd08b311");
 
                         autentificador = cifrador_clases.Decifrador_Autentificador(enviar_cliente.getAutentificador_V(), Ks_V);
                         ticket_v = cifrador_clases.Descifrado_Ticket_V(enviar_cliente.getTicket_V(), Ks_C_V);
@@ -91,8 +91,8 @@ public class Servidor {
 
                         enviar_cliente = enviar_recibir.Recibe_Enviar_C_AS(IP_C, Puerto);
 
-                        Ks_V = generador.secretKey("20");
-                        Ks_C_V = generador.secretKey("11");
+                        Ks_V = generador.secretKey("aeda17fa60187851b74f9928664dd08b320");
+                        Ks_C_V = generador.secretKey("aeda17fa60187851b74f9928664dd08b311");
 
                         autentificador = cifrador_clases.Decifrador_Autentificador(enviar_cliente.getAutentificador_V(), Ks_V);
                         ticket_v = cifrador_clases.Descifrado_Ticket_V(enviar_cliente.getTicket_V(), Ks_C_V);

@@ -36,8 +36,8 @@ public class Servidor_Autentificador {
 
             idTgs = infoClien.getID_TGS();
             idC = infoClien.getID_client();
-            ts1 = infoClien.getID_TGS();
-            ks_c_tgs = generador.secretKey("14");
+            ts1 = infoClien.getTS();
+            ks_c_tgs = generador.secretKey("aeda17fa60187851b74f9928664dd08b314");
             adC = IPC;
             ts2 = generador.horalocal();
             lifetime = 2000;
@@ -51,7 +51,7 @@ public class Servidor_Autentificador {
                 ticket_as.setTs2(ts2);
                 ticket_as.setLifetime(lifetime);
 
-                ks_tgs =generador.secretKey("12");
+                ks_tgs =generador.secretKey("aeda17fa60187851b74f9928664dd08b312");
 
                 //Ticket Cifrado
                 TicketCifrado = cifrador_clases.Cifrado_Ticket_As(ticket_as, ks_tgs);
@@ -63,10 +63,9 @@ public class Servidor_Autentificador {
                 enviar_as.setLifetime_2(lifetime);
                 enviar_as.setTicket_tgs_Cifrado(TicketCifrado);
 
-                ks_c = generador.secretKey("10");
+                ks_c = generador.secretKey("aeda17fa60187851b74f9928664dd08b312");
 
                 Enviar_ASCifrada = cifrador_clases.Cifrado_Enviar_AS(enviar_as, ks_c);
-
                 //Enviar clase cifrada
                 e_r.Enviar_Cifrado(Enviar_ASCifrada, puertoC);
             }

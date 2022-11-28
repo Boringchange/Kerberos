@@ -29,10 +29,10 @@ public class TGS {
             System.out.println("Ingrese el puerto donde se buscara al cliente: ");
             puertoC = sc.nextInt();
 
-            Ks_c_tgs = generador.secretKey("14");
+            Ks_c_tgs = generador.secretKey("aeda17fa60187851b74f9928664dd08b314");
 
             //recibe los datos de cliente
-            Ks_tgs = generador.secretKey("12");
+            Ks_tgs = generador.secretKey("aeda17fa60187851b74f9928664dd08b312");
 
             enviar_cliente = enviar_recibir.Recibe_Enviar_C_AS(IP_C,puertoC);
             ticket_as = cifrador_clases.Descifrado_Ticket_As(enviar_cliente.getTicket_AS_Cifrado(), Ks_tgs);
@@ -40,7 +40,7 @@ public class TGS {
 
             if (ticket_as.getIpC().equals(autentificador.getIP_C())){
                 //Prepara archivos para enviar
-                Ks_C_V = generador.secretKey("11");
+                Ks_C_V = generador.secretKey("aeda17fa60187851b74f9928664dd08b311");
                 TS_4 = generador.horalocal();
 
                 //Generador ticket servidor
@@ -50,7 +50,7 @@ public class TGS {
                 ticket_v.setTimelife(120000);
 
                 //cifrar ticket
-                Ks_V = generador.secretKey("20");
+                Ks_V = generador.secretKey("aeda17fa60187851b74f9928664dd08b320");
                 Ticket_V_Cifrado = cifrador_clases.Cifrado_Ticket_V(ticket_v, Ks_V);
 
                 //Guardar cosas para enviar

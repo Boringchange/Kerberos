@@ -4,10 +4,12 @@ import javax.crypto.BadPaddingException;
 import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.NoSuchPaddingException;
 import javax.crypto.SecretKey;
+import javax.crypto.spec.SecretKeySpec;
 import java.awt.*;
 import java.io.IOException;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
+import java.util.Base64;
 import java.util.Scanner;
 
 public class Cliente {
@@ -52,15 +54,15 @@ public class Cliente {
 
                         enviar_recibir.Enviar_C_AS(enviar_cliente, puerto);
 
-                        System.out.println("Introduzca el ip del servidor Autentificador");
-                        IP_AS = sc.nextLine();
+                        System.out.println("Introduzca el ip del servidor Autentificador: ");
+                        IP_AS = sc.next();
 
                         //Recibe datos de AC
 
                         cifrado_ticket = enviar_recibir.Recibir_Cifrado(IP_AS, puerto);
 
                         //Descifra la clase
-                        ks_c = generador.secretKey("10");
+                        ks_c = generador.secretKey("aeda17fa60187851b74f9928664dd08b312");
 
                         enviar_as = cifrador_clases.Decifrador_Enviar_AS(cifrado_ticket, ks_c);
 
@@ -82,12 +84,12 @@ public class Cliente {
                         enviar_recibir.Enviar_C_AS(enviar_cliente, puertoTGS);
 
                         System.out.println("Introduzca el IP del servidor TGS: ");
-                        IP_TGS = sc.nextLine();
+                        IP_TGS = sc.next();
 
                         //Va a recibir datos de TGS
                         cifrado_Enviar_TGS = enviar_recibir.Recibir_Cifrado(IP_TGS, puertoTGS);
 
-                        Ks_C_TGS = generador.secretKey("14");
+                        Ks_C_TGS = generador.secretKey("aeda17fa60187851b74f9928664dd08b314");
 
                         //Enviar a Server
 
@@ -108,7 +110,7 @@ public class Cliente {
                         enviar_recibir.Enviar_C_AS(enviar_cliente, puertoV);
 
                         System.out.println("Introduca el IP del server: ");
-                        String IP_S = sc.nextLine();
+                        String IP_S = sc.next();
 
                         String Enviar_servercifrado;
                         Enviar_servercifrado = enviar_recibir.Recibir_Cifrado(IP_S, puertoV);
@@ -130,7 +132,7 @@ public class Cliente {
                         enviar_recibir.Enviar_C_AS(enviar_cliente, puertoV);
 
                         System.out.println("Introduca el IP del server: ");
-                        String IP_S = sc.nextLine();
+                        String IP_S = sc.next();
 
                         String Enviar_servercifrado;
                         Enviar_servercifrado = enviar_recibir.Recibir_Cifrado(IP_S, puertoV);
